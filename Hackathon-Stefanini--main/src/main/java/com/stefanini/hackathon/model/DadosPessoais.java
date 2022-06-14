@@ -26,6 +26,30 @@ public class DadosPessoais {
         this.cpf = cpf;
         this.email = email;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     /* @Column(nullable = false)
     private String telefone;
     @Column(nullable = false)

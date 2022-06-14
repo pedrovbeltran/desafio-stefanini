@@ -33,4 +33,7 @@ public class AlunoService {
         return alunoRepository.save(aluno);
     }
 
+    public void delete(Long id){
+        alunoRepository.deleteById(id);
+    }
 }

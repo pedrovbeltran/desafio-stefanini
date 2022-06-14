@@ -10,6 +10,10 @@ import com.stefanini.hackathon.service.DadosPessoaisService;
 import com.stefanini.hackathon.service.TurmaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.ArrayList;
+
+
+import java.util.List;
 
 @Service
 public class AlunoDTOService {
@@ -40,5 +44,16 @@ public class AlunoDTOService {
                 turma = turmaService.findById(aluno.getIdTurma())
                                     );
         return newAluno;
+    }
+
+    public List<AlunoDTO> mapTodosAluno(List<Aluno> listaAluno) {
+
+        List<AlunoDTO> listaAlunoDTO = new ArrayList();
+        for (Aluno aluno : listaAluno) {
+            AlunoDTO alunoDTO = new AlunoDTO(aluno);
+            listaAlunoDTO.add(alunoDTO);
+        }
+
+        return listaAlunoDTO;
     }
 }

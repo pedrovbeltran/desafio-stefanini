@@ -1,24 +1,34 @@
 package com.stefanini.hackathon.controller;
 
+
+
 import com.stefanini.hackathon.dto.AlunoDTO;
 import com.stefanini.hackathon.exception.TurmaNotFoundException;
 import com.stefanini.hackathon.model.Aluno;
 import com.stefanini.hackathon.mapper.AlunoDTOService;
+import com.stefanini.hackathon.model.DadosPessoais;
 import com.stefanini.hackathon.service.AlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller
+
+
+import java.util.List;
+
+
+
+@RestController
+@CrossOrigin("*")
 public class AlunoController {
+
+
 
     private final AlunoService alunoService;
     private final AlunoDTOService alunoDTOService;
+
+
 
     @Autowired
     public AlunoController(AlunoService alunoService, AlunoDTOService alunoDTOService) {
@@ -26,35 +36,29 @@ public class AlunoController {
         this.alunoDTOService = alunoDTOService;
     }
 
-    @Autowired
 
 
-    @RequestMapping(path = "/aluno")
-    public ModelAndView loadHtml(Model model) {
-
-        ModelAndView mv = new ModelAndView("aluno");
-        AlunoDTO alunoDTO = new AlunoDTO();
-
-        mv.addObject("alunoDTO", alunoDTO);
-
-        return mv;
+    @GetMapping(value = "/aluno")
+    public List<Aluno> findAlunos(){
+        List<Aluno> alunos = alunoService.findAllAlunos();
+        return alunos;
     }
 
-    @PostMapping(value = "/aluno")
-    public String saveAluno(AlunoDTO aluno) throws TurmaNotFoundException {
 
-        Aluno newAluno = alunoDTOService.mapAluno(aluno);
 
-        alunoService.save(newAluno);
-
-        return "redirect:/aluno";
+    @DeleteMapping("/aluno/{id}")
+    public void deleteAluno(@PathVariable Long id){
+        alunoService.delete(id);
     }
 
-    @GetMapping("/deleteAluno/{id}")
-    public String deleteAluno(@PathVariable (value = "id") int id, Model model) {
 
-        //this.alunoService.remove(id);
 
-        return "redirect:/aluno";
+    @PostMapping("/aluno")
+    public Aluno saveAluno(@RequestBody Aluno aluno){
+        Aluno retorno = alunoService.save(aluno);
+        return retorno;
     }
+
+
+
 }

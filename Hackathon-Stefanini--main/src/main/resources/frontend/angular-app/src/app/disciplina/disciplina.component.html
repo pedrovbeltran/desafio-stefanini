@@ -1,0 +1,32 @@
+<form id="my-form2" th:action="@{disciplina}" th:object="${disciplinaDTO}" method="post">
+    <div class="form-group">
+      <label for="field-text">Nome</label>
+      <input id="field-text" class="form-control" th:field="*{nome}" type="text">
+    </div>
+    <div class="form-group">
+      <label for="field-text2">Código</label>
+      <input id="field-text2" class="form-control" th:field="*{codigo}" type="text">
+    </div>
+    <div class="form-group">
+        <label for="field-text3">Conteúdo</label>
+        <input id="field-text3" class="form-control" th:field="*{conteudoProgramatico}" type="text">
+      </div>
+      <div class="form-group">
+        <label for="field-text4">Créditos</label>
+        <input id="field-text4" class="form-control" th:field="*{numeroCreditos}" type="text">
+      </div>
+      <div class="form-group">
+        <label for="field-text5">Turma</label>
+        <input id="field-text5" class="form-control" th:field="*{turma}" type="text">
+      </div>
+      <div class="form-group">
+        <label for="field-text6">Curso</label>
+        <input id="field-text6" class="form-control" th:field="*{curso}" type="text">
+      </div>
+      <div class="form-group">
+        <label for="field-text7">Horas</label>
+        <input id="field-text7" class="form-control" th:field="*{totalHoras}" type="text">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>

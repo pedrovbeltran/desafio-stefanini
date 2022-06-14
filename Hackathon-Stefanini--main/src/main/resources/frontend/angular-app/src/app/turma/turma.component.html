@@ -1,0 +1,7 @@
+<form class="form-inline justify-content-center" id="my-form" th:action="@{turma}" th:object="${turmaDTO}" method="post">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="field-text" class="col-sm-2 col-form-label mr-2">Nome</label>
+      <input id="field-text" th:field="*{nome}" class="form-control turma" type="text">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Cadastrar</button>
+</form>

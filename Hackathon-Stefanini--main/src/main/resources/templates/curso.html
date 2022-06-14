@@ -36,6 +36,29 @@
     </form>
 </head>
 <body>
+    <div class="">
+        <table class="">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Horas</th>
+                <th>Alterar</th>
+                <th>Excluir</th>
+            </tr>
+            </thead>
 
+            <tbody>
+            <tr th:each="curso : ${listaCursos}">
+                <td th:text="${curso.id}"></td>
+                <td th:text="${curso.nome}"></td>
+                <td align="center">
+                    <a th:href="@{/updateCurso/{id}(id=${aluno.id})">Atualizar</a>
+                    <a th:href="@{/deleteCurso/{id}(id=${aluno.id})">Deletar</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

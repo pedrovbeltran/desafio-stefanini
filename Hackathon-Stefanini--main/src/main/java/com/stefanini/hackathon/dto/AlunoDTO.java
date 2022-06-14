@@ -2,6 +2,7 @@ package com.stefanini.hackathon.dto;
 
 import com.stefanini.hackathon.model.DadosPessoais;
 import com.stefanini.hackathon.model.Turma;
+import com.stefanini.hackathon.model.Aluno;
 
 public class AlunoDTO {
 
@@ -24,6 +25,14 @@ public class AlunoDTO {
         this.cpf = cpf;
         this.email = email;
         this.idTurma = idTurma;
+    }
+
+    public AlunoDTO(Aluno aluno) {
+        this.nome = aluno.getNome();
+        this.matricula = aluno.getMatricula();
+        this.cpf = aluno.getDadosPessoais().getCpf();
+        this.email = aluno.getDadosPessoais().getEmail();
+        this.idTurma = aluno.getDadosPessoais().getId();
     }
 
     public String getNome() {

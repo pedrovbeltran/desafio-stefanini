@@ -1,0 +1,11 @@
+<form  id="my-form" th:action="@{curso}" th:object="${cursoDTO}" method="post">
+    <div class="form-group">
+      <label for="field-text">Nome</label>
+      <input class="form-control" id="field-text" th:field="*{name}" type="text">
+    </div>
+    <div class="form-group">
+      <label for="field-text2">Horas</label>
+      <input class="form-control" id="field-text2" th:field="*{totalGrade}"type="text">
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+  </form>

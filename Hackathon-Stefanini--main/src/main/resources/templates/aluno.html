@@ -46,6 +46,7 @@
 
 
 </head>
+
 <body>
     <div class="">
         <table class="">
@@ -56,19 +57,22 @@
                     <th>CPF</th>
                     <th>Email</th>
                     <th>Turma</th>
+                    <th>Alterar</th>
+                    <th>Excluir</th>
                 </tr>
             </thead>
 
             <tbody>
                 <tr th:each="aluno : ${listaAlunos}">
-                    <td th:text="${aluno.id}"></td>
                     <td th:text="${aluno.nome}"></td>
                     <td th:text="${aluno.matricula}"></td>
-                    <td th:text="${aluno.dadosPessoais.cpf}"></td>
-                    <td th:text="${aluno.dadosPessoais.email}"></td>
-                    <td th:text="${aluno.turma.nome}"></td>
+                    <td th:text="${aluno.cpf}"></td>
+                    <td th:text="${aluno.email}"></td>
+                    <td th:text="${aluno.idTurma}"></td>
                     <td align="center">
-                        <a th:href="@{/updateAluno/{id}(id=${aluno.id})">Atualizar</a>
+                        <a th:href="@{/deleteAluno/{id}(id=${aluno.id})">Deletar</a>
+                    </td>
+                    <td align="center">
                         <a th:href="@{/deleteAluno/{id}(id=${aluno.id})">Deletar</a>
                     </td>
                 </tr>
